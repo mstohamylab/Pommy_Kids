@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pommy Kids Store – Shopify Mockup</title>
+<style>
+:root{--coral:#FF6B6B;--coral-d:#E14D52;--sun:#FFC845;--mint:#3CC9A7;--sky:#4FA3F7;--lav:#A78BFA;--ink:#2B2D42;--muted:#6B7080;--cream:#FFF8EE;--line:#EFE6DA;--bg:#F6F4F1;--nav:#2B2D42}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Nunito","Segoe UI","Noto Sans","Noto Sans Arabic","DejaVu Sans",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:14px}
+a{color:inherit}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+nav.idx{background:var(--nav);color:#fff;padding:18px 0;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{padding:0 20px 14px;border-bottom:1px solid rgba(255,255,255,.14)}
+.brand b{font-size:19px}.brand b span{color:var(--sun)}.brand small{display:block;opacity:.65;font-size:11px;margin-top:3px}
+.idx h6{margin:16px 20px 6px;font-size:10.5px;letter-spacing:1.2px;opacity:.55}
+.idx a{display:flex;gap:10px;align-items:center;padding:9px 20px;text-decoration:none;font-size:13px;opacity:.85;border-left:3px solid transparent}
+.idx a:hover{background:rgba(255,255,255,.06);opacity:1}.idx a.on{background:rgba(255,107,107,.18);border-left-color:var(--coral);opacity:1}
+.idx a i{font-style:normal;width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:11px;font-weight:700}
+main{padding:22px 26px 40px;min-width:0}
+.scr{display:none}.scr.on{display:block}
+.hdr{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.hdr h1{margin:0;font-size:20px}.hdr p{margin:3px 0 0;color:var(--muted)}
+.pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#FFE8E8;color:var(--coral-d)}
+.pill.m{background:#DDF6EF;color:#1B8F74}.pill.s{background:#E2F0FE;color:#2A74C9}.pill.y{background:#FFF3D1;color:#9A6B00}.pill.g{background:#EEE;color:#555}
+/* storefront frame */
+.browser{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #E4DED5;box-shadow:0 8px 24px rgba(43,45,66,.08)}
+.bbar{background:#F1EDE7;padding:8px 12px;display:flex;gap:8px;align-items:center;font-size:11.5px;color:var(--muted)}
+.bbar i{width:10px;height:10px;border-radius:50%;background:#E8B4B4;display:inline-block}.bbar i:nth-child(2){background:#F2D58A}.bbar i:nth-child(3){background:#A9DFC8}
+.url{flex:1;background:#fff;border-radius:7px;padding:4px 10px;margin-left:8px}
+.ann{background:var(--ink);color:#fff;text-align:center;font-size:12px;padding:7px}
+.ann b{color:var(--sun)}
+.shdr{display:flex;align-items:center;justify-content:space-between;padding:14px 26px;border-bottom:1px solid var(--line);gap:16px}
+.logo{font-weight:900;font-size:26px;letter-spacing:-.5px;color:var(--coral)}.logo span{color:var(--sky)}.logo em{font-style:normal;color:var(--sun)}
+.menu{display:flex;gap:20px;font-weight:700;font-size:13.5px}.menu span.hot{color:var(--coral)}
+.icons{display:flex;gap:14px;font-size:13px;align-items:center}.icons .cart{background:var(--coral);color:#fff;border-radius:20px;padding:5px 11px;font-weight:700}
+.lang{border:1px solid var(--line);border-radius:20px;padding:4px 10px;font-size:12px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;background:linear-gradient(120deg,#FFF1D6,#FFE3E3 55%,#DDF0FF);padding:38px 40px;gap:20px;position:relative;overflow:hidden}
+.hero h2{font-size:40px;line-height:1.08;margin:8px 0 10px;font-weight:900}.hero h2 span{color:var(--coral)}
+.hero p{color:#555;font-size:15px;max-width:440px;line-height:1.5}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:24px;padding:11px 20px;font-weight:800;font-size:13.5px;cursor:pointer;font-family:inherit}
+.btn.c{background:var(--coral);color:#fff;box-shadow:0 4px 0 var(--coral-d)}.btn.w{background:#fff;color:var(--ink);border:2px solid var(--ink)}
+.btn.sm{padding:7px 13px;font-size:12px;box-shadow:none}
+.blob{border-radius:50%;position:absolute;opacity:.55}
+.heroart{position:relative;display:grid;place-items:center}
+.heroart .circ{width:270px;height:270px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-size:120px;box-shadow:inset 0 -12px 0 rgba(0,0,0,.06)}
+.heroart .tagx{position:absolute;background:#fff;border-radius:14px;padding:8px 12px;font-weight:800;font-size:12px;box-shadow:0 6px 14px rgba(0,0,0,.08)}
+.usp{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px 26px;background:#fff;border-bottom:1px solid var(--line);font-size:12.5px;font-weight:700}
+.usp div{display:flex;gap:8px;align-items:center}.usp b{font-size:20px}
+.sec{padding:22px 26px}.sec h3{margin:0 0 14px;font-size:20px;font-weight:900;display:flex;justify-content:space-between;align-items:baseline}
+.sec h3 small{font-size:12px;color:var(--coral);font-weight:800}
+.ages{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.age{border-radius:18px;padding:16px;text-align:center;font-weight:900;color:var(--ink)}
+.age .e{font-size:38px;display:block;margin-bottom:4px}.age small{display:block;font-weight:700;color:#555;font-size:11.5px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.prod{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}
+.prod .img{height:150px;display:grid;place-items:center;font-size:66px}
+.prod .b{padding:10px 12px}.prod h5{margin:0 0 4px;font-size:13.5px}.prod .pr{font-weight:900;color:var(--coral-d)}.prod .pr s{color:#aaa;font-weight:600;margin-left:6px;font-size:12px}
+.prod .badge{position:absolute;top:10px;left:10px;background:var(--mint);color:#fff;font-size:10.5px;font-weight:800;padding:3px 8px;border-radius:10px}
+.prod .badge.sale{background:var(--coral)}
+.sw{display:flex;gap:5px;margin-top:6px}.sw i{width:13px;height:13px;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 0 0 1px #ddd}
+.stars{color:#F5A623;font-size:11.5px}
+.foot{background:var(--ink);color:#d9dbe5;padding:22px 26px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:16px;font-size:12px}
+.foot b{color:#fff;display:block;margin-bottom:8px;font-size:13px}.foot div div{margin:4px 0}
+.payicons{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.payicons span{background:#fff;color:var(--ink);border-radius:5px;padding:3px 6px;font-size:10px;font-weight:800}
+/* phone */
+.wrap2{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+.phone{width:310px;border:10px solid #22232f;border-radius:36px;background:#fff;overflow:hidden;box-shadow:0 10px 26px rgba(0,0,0,.14)}
+.ph .shdr{padding:10px 12px}.ph .logo{font-size:19px}
+.ph .hero{grid-template-columns:1fr;padding:18px;text-align:center}.ph .hero h2{font-size:24px}
+.ph .heroart .circ{width:130px;height:130px;font-size:62px}
+[dir=rtl]{font-family:"Tajawal","Noto Sans Arabic","Segoe UI","DejaVu Sans",sans-serif}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{border:1.5px solid var(--line);border-radius:20px;padding:5px 11px;font-size:12px;font-weight:700;background:#fff}.chip.on{border-color:var(--coral);background:#FFF0F0;color:var(--coral-d)}
+/* collection */
+.col{display:grid;grid-template-columns:230px 1fr;gap:18px;padding:18px 26px}
+.filters{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:12.5px}
+.filters h6{margin:12px 0 8px;font-size:12px}.filters h6:first-child{margin-top:0}
+.filters label{display:flex;gap:7px;align-items:center;margin:5px 0}
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.sizes span{border:1.5px solid var(--line);border-radius:8px;text-align:center;padding:5px 0;font-weight:700;font-size:12px}.sizes span.on{border-color:var(--ink);background:var(--ink);color:#fff}.sizes span.x{color:#bbb;text-decoration:line-through}
+/* product */
+.pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;padding:22px 26px}
+.gal{display:grid;grid-template-columns:70px 1fr;gap:10px}.thumbs div{height:66px;border-radius:12px;margin-bottom:8px;display:grid;place-items:center;font-size:30px;background:#FFF3D1}
+.mainimg{height:360px;border-radius:20px;background:linear-gradient(135deg,#DDF0FF,#FFF3D1);display:grid;place-items:center;font-size:170px}
+.pdp h2{margin:4px 0 6px;font-size:26px;font-weight:900}.price{font-size:24px;font-weight:900;color:var(--coral-d)}
+.bnpl{background:#F4F1FF;border-radius:10px;padding:8px 10px;font-size:12px;margin:10px 0}
+.qty{display:inline-flex;border:1.5px solid var(--line);border-radius:22px;overflow:hidden}.qty span{padding:9px 14px;font-weight:800}
+.acc{border-top:1px solid var(--line);padding:10px 0;font-size:13px;font-weight:700;display:flex;justify-content:space-between}
+table{width:100%;border-collapse:collapse;font-size:12.5px}th{background:#FFF3D1;text-align:left;padding:7px 8px;font-size:11.5px}td{padding:7px 8px;border-bottom:1px solid var(--line)}
+/* checkout */
+.co{display:grid;grid-template-columns:1.25fr 1fr;min-height:560px}
+.co .l{padding:24px 30px}.co .r{background:#FAF7F2;border-left:1px solid var(--line);padding:24px 26px}
+.co h4{margin:16px 0 8px;font-size:15px}
+.fld{border:1px solid #DCD5CB;border-radius:9px;padding:10px 12px;font-size:12.5px;color:#888;background:#fff;margin-bottom:8px}
+.opt{border:1px solid #DCD5CB;background:#fff;padding:11px 12px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.opt:first-of-type{border-radius:9px 9px 0 0}.opt:last-of-type{border-radius:0 0 9px 9px}.opt+.opt{border-top:0}
+.opt.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);background:#FFFDF8}
+.opt .ic{display:flex;gap:4px}.opt .ic span{border:1px solid #ddd;border-radius:4px;padding:1px 5px;font-size:10px;font-weight:800;background:#fff}
+.line{display:flex;justify-content:space-between;margin:9px 0;font-size:13px}.line.t{font-size:16px;font-weight:900;border-top:1px solid var(--line);padding-top:12px}
+.li{display:flex;gap:12px;align-items:center;margin-bottom:12px}.li .im{width:58px;height:58px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:30px;position:relative}
+.li .im b{position:absolute;top:-7px;right:-7px;background:#777;color:#fff;border-radius:50%;width:19px;height:19px;font-size:10.5px;display:grid;place-items:center}
+/* admin */
+.adm{display:grid;grid-template-columns:200px 1fr;background:#F1F1F1;border-radius:14px;overflow:hidden;border:1px solid #DDD}
+.adm .sb{background:#EBEBEB;padding:12px 8px;font-size:12.5px}.adm .sb div{padding:6px 10px;border-radius:7px}.adm .sb .on{background:#fff;font-weight:800}
+.adm .mn{padding:16px 20px;background:#F6F6F7}
+.card{background:#fff;border:1px solid #E3E3E3;border-radius:12px;padding:14px;margin-bottom:12px}
+.card h4{margin:0 0 10px;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}.kp .card{margin:0}.kp small{color:#666;font-size:11.5px}.kp b{display:block;font-size:22px;margin-top:3px}
+.low{color:#B4232A;font-weight:800}
+.flow{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:700}.flow span{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:7px 10px}.flow span.k{background:var(--ink);color:#fff;border-color:var(--ink)}
+.track{display:flex;justify-content:space-between;position:relative;margin:18px 6px 8px}
+.track:before{content:"";position:absolute;top:13px;left:20px;right:20px;height:4px;background:#E8E2D8;border-radius:3px}
+.track:after{content:"";position:absolute;top:13px;left:20px;width:62%;height:4px;background:var(--mint);border-radius:3px}
+.track div{position:relative;z-index:1;text-align:center;font-size:11.5px;font-weight:700;width:90px}
+.track i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;margin:0 auto 6px;background:#E8E2D8;font-style:normal;color:#fff}
+.track i.d{background:var(--mint)}
+.note{font-size:11px;color:var(--muted);margin-top:12px}
+.tile{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;transition:.15s}
+.tile:hover{border-color:var(--coral);box-shadow:0 6px 16px rgba(255,107,107,.15)}
+.tile .n{font-size:11px;color:var(--coral-d);font-weight:900;letter-spacing:.6px}.tile h4{margin:5px 0 4px;font-size:15px}.tile p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.45}
+.ihero{background:linear-gradient(120deg,#FFE3E3,#FFF1D6 50%,#DDF0FF);border-radius:20px;padding:26px 30px;margin-bottom:16px}
+.ihero h1{margin:6px 0 6px;font-size:28px;font-weight:900}.ihero p{margin:0;color:#555;max-width:760px;line-height:1.5}
+@media(max-width:900px){.app{grid-template-columns:1fr}nav.idx{position:static;height:auto}.hero,.wrap2,.col,.pdp,.co,.grid4,.ages,.usp,.foot,.kp,.adm{grid-template-columns:1fr}.menu{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<nav class="idx">
+  <div class="brand"><b>Pommy <span>Kids</span></b><small>Shopify Store · Design Mockup v1.0</small></div>
+  <h6>INDEX</h6>
+  <a href="#home" data-s="home"><i>00</i>Mockup Index</a>
+  <h6>STOREFRONT</h6>
+  <a href="#store" data-s="store"><i>01</i>Homepage (EN)</a>
+  <a href="#arabic" data-s="arabic"><i>02</i>Arabic Mobile (RTL)</a>
+  <a href="#collection" data-s="collection"><i>03</i>Collection &amp; Filters</a>
+  <a href="#product" data-s="product"><i>04</i>Product &amp; Size Guide</a>
+  <a href="#checkout" data-s="checkout"><i>05</i>Checkout (Card · COD)</a>
+  <a href="#tracking" data-s="tracking"><i>06</i>Order Tracking</a>
+  <h6>BACK OFFICE</h6>
+  <a href="#inventory" data-s="inventory"><i>07</i>Inventory (Shopify)</a>
+  <a href="#marketing" data-s="marketing"><i>08</i>Social Ads &amp; Pixels</a>
+  <a href="#legal" data-s="legal"><i>09</i>Policies &amp; Legal</a>
+</nav>
+<main>
+
+<!-- 00 -->
+<section class="scr" id="s-home">
+  <div class="ihero"><span class="pill">Proposed by ITSC</span><h1>Pommy Kids — Shopify Store Mockup</h1><p>Clickable design concept for the new kid-friendly online store. Every screen is linked from this index and the left menu. Colours, logo and photography will be finalised from the Pommy Kids brand during the design phase; products and prices shown are illustrative.</p></div>
+  <div class="grid4">
+    <a class="tile" href="#store"><div class="n">01 · STOREFRONT</div><h4>Homepage (EN)</h4><p>Playful hero, shop-by-age, best sellers, trust badges and payment icons.</p></a>
+    <a class="tile" href="#arabic"><div class="n">02 · STOREFRONT</div><h4>Arabic Mobile (RTL)</h4><p>Arabic-first mobile experience with right-to-left layout.</p></a>
+    <a class="tile" href="#collection"><div class="n">03 · STOREFRONT</div><h4>Collection &amp; Filters</h4><p>Filter by age, size, gender, colour and price; sold-out sizes clearly marked.</p></a>
+    <a class="tile" href="#product"><div class="n">04 · STOREFRONT</div><h4>Product &amp; Size Guide</h4><p>Variant picker, foot-length size guide, BNPL instalments, reviews.</p></a>
+    <a class="tile" href="#checkout"><div class="n">05 · PAYMENTS</div><h4>Checkout</h4><p>mada, Visa/Mastercard, Apple Pay, Tabby/Tamara and Cash on Delivery; courier rates.</p></a>
+    <a class="tile" href="#tracking"><div class="n">06 · SHIPPING</div><h4>Order Tracking</h4><p>Courier tracking with SMS/WhatsApp notifications.</p></a>
+    <a class="tile" href="#inventory"><div class="n">07 · INVENTORY</div><h4>Inventory (Shopify)</h4><p>Native multi-location stock, low-stock alerts and transfers.</p></a>
+    <a class="tile" href="#marketing"><div class="n">08 · MARKETING</div><h4>Social Ads &amp; Pixels</h4><p>Meta, TikTok, Snapchat and Google channels with catalog sync.</p></a>
+    <a class="tile" href="#legal"><div class="n">09 · LEGAL</div><h4>Policies &amp; Legal</h4><p>Returns, shipping, privacy, terms and required business disclosures.</p></a>
+  </div>
+</section>
+
+<!-- 01 -->
+<section class="scr" id="s-store">
+  <div class="hdr"><div><h1>01 · Homepage (English, desktop)</h1><p>Shopify Online Store 2.0 theme, customised with the Pommy Kids palette.</p></div><span class="pill m">Theme &amp; Design</span></div>
+  <div class="browser">
+    <div class="bbar"><i></i><i></i><i></i><span class="url">🔒 pommykids.com</span></div>
+    <div class="ann">🚚 <b>Free delivery</b> on orders over 199 SAR · Cash on Delivery available · Easy 7-day returns</div>
+    <div class="shdr"><div class="logo">pommy<span>kids</span><em>✦</em></div>
+      <div class="menu"><span>New In</span><span>Shoes</span><span>Girls</span><span>Boys</span><span>Baby</span><span class="hot">Sale</span></div>
+      <div class="icons"><span class="lang">EN | ع</span><span>🔍</span><span>♡</span><span>👤</span><span class="cart">🛒 2</span></div></div>
+    <div class="hero">
+      <div><span class="pill y">Back-to-school drop</span><h2>Happy feet,<br><span>happy kids!</span></h2><p>Original shoes and clothes for little explorers — comfy, colourful and made to play.</p>
+        <div style="display:flex;gap:10px;margin-top:16px"><button class="btn c">Shop shoes</button><button class="btn w">Shop by age</button></div></div>
+      <div class="heroart"><div class="circ">👟</div><div class="tagx" style="top:20px;right:30px">⭐ 4.9 parents' rating</div><div class="tagx" style="bottom:22px;left:24px">✔ 100% original brands</div></div>
+    </div>
+    <div class="usp"><div><b>🚚</b>Fast delivery across KSA</div><div><b>💵</b>Cash on Delivery</div><div><b>🔁</b>Easy returns &amp; exchanges</div><div><b>🛡️</b>Secure payment · mada</div></div>
+    <div class="sec"><h3>Shop by age <small>View all →</small></h3>
+      <div class="ages">
+        <div class="age" style="background:#FFE3E3"><span class="e">🍼</span>Baby<small>0–12 months</small></div>
+        <div class="age" style="background:#FFF1D6"><span class="e">🧸</span>Toddler<small>1–3 years</small></div>
+        <div class="age" style="background:#DDF6EF"><span class="e">🎈</span>Little kids<small>4–7 years</small></div>
+        <div class="age" style="background:#E2F0FE"><span class="e">🚲</span>Big kids<small>8–12 years</small></div>
+        <div class="age" style="background:#EFE9FF"><span class="e">🎁</span>Gift ideas<small>All ages</small></div>
+      </div></div>
+    <div class="sec" style="padding-top:4px"><h3>Best sellers <small>See all →</small></h3>
+      <div class="grid4">
+        <div class="prod"><span class="badge">NEW</span><div class="img" style="background:#E2F0FE">👟</div><div class="b"><h5>Light-Up Runner Sneakers</h5><div class="stars">★★★★★ <span style="color:#999">(128)</span></div><div class="pr">149 SAR</div><div class="sw"><i style="background:#4FA3F7"></i><i style="background:#FF6B6B"></i><i style="background:#2B2D42"></i></div></div></div>
+        <div class="prod"><span class="badge sale">-25%</span><div class="img" style="background:#FFE3E3">👗</div><div class="b"><h5>Daisy Cotton Dress</h5><div class="stars">★★★★☆ <span style="color:#999">(64)</span></div><div class="pr">89 SAR<s>119</s></div><div class="sw"><i style="background:#FFC845"></i><i style="background:#FFB3C1"></i></div></div></div>
+        <div class="prod"><div class="img" style="background:#FFF1D6">🥿</div><div class="b"><h5>Soft-Sole First Steps</h5><div class="stars">★★★★★ <span style="color:#999">(211)</span></div><div class="pr">99 SAR</div><div class="sw"><i style="background:#F3D9B1"></i><i style="background:#A78BFA"></i></div></div></div>
+        <div class="prod"><div class="img" style="background:#DDF6EF">👕</div><div class="b"><h5>Dino Play T-shirt</h5><div class="stars">★★★★★ <span style="color:#999">(47)</span></div><div class="pr">49 SAR</div><div class="sw"><i style="background:#3CC9A7"></i><i style="background:#fff"></i></div></div></div>
+      </div></div>
+    <div class="foot"><div><b>pommykids</b>Original shoes &amp; clothes for kids.<br>CR No. ••••••• · VAT No. •••••••<div class="payicons"><span>mada</span><span>VISA</span><span>MC</span><span> Pay</span><span>tabby</span><span>tamara</span><span>COD</span></div></div>
+      <div><b>Shop</b><div>Shoes</div><div>Girls</div><div>Boys</div><div>Baby</div></div>
+      <div><b>Help</b><div>Shipping policy</div><div>Returns &amp; exchanges</div><div>Size guide</div><div>Track my order</div></div>
+      <div><b>Follow us</b><div>Instagram · TikTok</div><div>Snapchat · Facebook</div><div>WhatsApp support</div></div></div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="scr" id="s-arabic">
+  <div class="hdr"><div><h1>02 · Arabic Mobile Experience (RTL)</h1><p>Arabic as primary language with automatic right-to-left layout; English available via language switcher (Shopify Markets + Translate &amp; Adapt).</p></div><span class="pill s">Mobile-first</span></div>
+  <div style="display:flex;gap:24px;flex-wrap:wrap">
+  <div class="phone ph" dir="rtl">
+    <div class="ann">🚚 توصيل مجاني للطلبات فوق ١٩٩ ريال</div>
+    <div class="shdr"><span>☰</span><div class="logo">بومي<span> كيدز</span></div><span class="cart" style="background:var(--coral);color:#fff;border-radius:14px;padding:3px 9px;font-weight:800;font-size:12px">🛒 ٢</span></div>
+    <div class="hero"><div><span class="pill y">تشكيلة العودة للمدارس</span><h2>أقدام سعيدة،<br><span>أطفال سعداء!</span></h2><button class="btn c sm">تسوّق الأحذية</button></div><div class="heroart"><div class="circ">👟</div></div></div>
+    <div class="sec" style="padding:14px"><h3 style="font-size:16px">تسوّق حسب العمر</h3>
+      <div class="chips"><span class="chip on">٠–١٢ شهر</span><span class="chip">١–٣ سنوات</span><span class="chip">٤–٧ سنوات</span><span class="chip">٨–١٢ سنة</span></div></div>
+    <div style="padding:0 14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div class="prod"><div class="img" style="background:#E2F0FE;height:100px;font-size:46px">👟</div><div class="b"><h5>حذاء رياضي مضيء</h5><div class="pr">١٤٩ ر.س</div></div></div>
+      <div class="prod"><span class="badge sale">-٢٥٪</span><div class="img" style="background:#FFE3E3;height:100px;font-size:46px">👗</div><div class="b"><h5>فستان قطني</h5><div class="pr">٨٩ ر.س</div></div></div>
+    </div>
+  </div>
+  <div class="phone ph">
+    <div class="ann">🚚 Free delivery over 199 SAR</div>
+    <div class="shdr"><span>☰</span><div class="logo">pommy<span>kids</span></div><span style="background:var(--coral);color:#fff;border-radius:14px;padding:3px 9px;font-weight:800;font-size:12px">🛒 2</span></div>
+    <div style="padding:12px"><div class="mainimg" style="height:200px;font-size:100px">👟</div><h3 style="margin:10px 0 2px">Light-Up Runner</h3><div class="price" style="font-size:19px">149 SAR</div>
+      <div class="bnpl">or 4 payments of <b>37.25 SAR</b> with <b>tabby</b> / <b>tamara</b></div>
+      <div class="sizes" style="margin:8px 0"><span>EU 24</span><span class="on">EU 25</span><span>EU 26</span><span class="x">EU 27</span></div>
+      <button class="btn c" style="width:100%;justify-content:center">Add to bag</button>
+      <div class="note" style="text-align:center">💬 Questions? Chat with us on WhatsApp</div></div>
+  </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="scr" id="s-collection">
+  <div class="hdr"><div><h1>03 · Collection Page with Kid-Specific Filters</h1><p>Shopify Search &amp; Discovery filters driven by product metafields (age, size, gender, colour).</p></div><span class="pill m">Catalog</span></div>
+  <div class="browser">
+    <div class="bbar"><i></i><i></i><i></i><span class="url">🔒 pommykids.com/collections/kids-shoes</span></div>
+    <div style="padding:16px 26px 0"><div class="muted" style="font-size:12px">Home / Shoes</div><h2 style="margin:4px 0 6px;font-weight:900">Kids' Shoes <span style="font-size:13px;color:var(--muted);font-weight:700">· 86 products</span></h2>
+      <div class="chips"><span class="chip on">Sneakers</span><span class="chip">Sandals</span><span class="chip">School shoes</span><span class="chip">First steps</span><span class="chip">Boots</span></div></div>
+    <div class="col">
+      <div class="filters">
+        <h6>Age</h6><label><input type="checkbox">Baby (0–12 m)</label><label><input type="checkbox" checked>Toddler (1–3 y)</label><label><input type="checkbox" checked>Little kids (4–7 y)</label><label><input type="checkbox">Big kids (8–12 y)</label>
+        <h6>Shoe size (EU)</h6><div class="sizes"><span>20</span><span>21</span><span class="on">22</span><span>23</span><span>24</span><span>25</span><span>26</span><span class="x">27</span></div>
+        <h6>Gender</h6><div class="chips"><span class="chip on">Girls</span><span class="chip">Boys</span><span class="chip">Unisex</span></div>
+        <h6>Colour</h6><div class="sw"><i style="background:#FF6B6B"></i><i style="background:#4FA3F7"></i><i style="background:#FFC845"></i><i style="background:#3CC9A7"></i><i style="background:#2B2D42"></i></div>
+        <h6>Price</h6><div style="font-size:12px">50 SAR — 250 SAR</div><div style="height:6px;background:#FFE3E3;border-radius:4px;margin-top:6px"><div style="width:70%;height:6px;background:var(--coral);border-radius:4px"></div></div>
+        <h6>Availability</h6><label><input type="checkbox" checked>In stock only</label>
+      </div>
+      <div><div style="display:flex;justify-content:space-between;margin-bottom:12px;font-size:12.5px"><span class="chips"><span class="chip on">Toddler ✕</span><span class="chip on">Little kids ✕</span><span class="chip on">EU 22 ✕</span></span><span>Sort: <b>Best selling ▾</b></span></div>
+        <div class="grid4">
+          <div class="prod"><span class="badge">NEW</span><div class="img" style="background:#E2F0FE">👟</div><div class="b"><h5>Light-Up Runner</h5><div class="pr">149 SAR</div></div></div>
+          <div class="prod"><div class="img" style="background:#FFF1D6">🥿</div><div class="b"><h5>Velcro Easy-On</h5><div class="pr">119 SAR</div></div></div>
+          <div class="prod"><span class="badge sale">-20%</span><div class="img" style="background:#FFE3E3">👡</div><div class="b"><h5>Summer Sandal</h5><div class="pr">79 SAR<s>99</s></div></div></div>
+          <div class="prod"><div class="img" style="background:#DDF6EF">🥾</div><div class="b"><h5>Mini Hiker Boot</h5><div class="pr">179 SAR</div></div></div>
+          <div class="prod"><div class="img" style="background:#EFE9FF">👟</div><div class="b"><h5>Glitter Slip-On</h5><div class="pr">129 SAR</div></div></div>
+          <div class="prod"><div class="img" style="background:#E2F0FE">🩴</div><div class="b"><h5>Pool Slides</h5><div class="pr">59 SAR</div></div></div>
+          <div class="prod"><div class="img" style="background:#FFF1D6">👞</div><div class="b"><h5>School Classic</h5><div class="pr">139 SAR</div></div></div>
+          <div class="prod"><span class="badge">LOW STOCK</span><div class="img" style="background:#FFE3E3">👟</div><div class="b"><h5>Rainbow Sneaker</h5><div class="pr">159 SAR</div></div></div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="scr" id="s-product">
+  <div class="hdr"><div><h1>04 · Product Page with Size Guide</h1><p>Variants by size and colour with live stock, instalment messaging and parent reviews.</p></div><span class="pill m">Product</span></div>
+  <div class="browser">
+    <div class="bbar"><i></i><i></i><i></i><span class="url">🔒 pommykids.com/products/light-up-runner</span></div>
+    <div class="pdp">
+      <div class="gal"><div class="thumbs"><div>👟</div><div style="background:#E2F0FE">✨</div><div style="background:#FFE3E3">👣</div><div style="background:#DDF6EF">📦</div></div><div class="mainimg">👟</div></div>
+      <div>
+        <span class="pill m">In stock · ships in 24 h</span>
+        <h2>Light-Up Runner Sneakers</h2>
+        <div class="stars">★★★★★ <span style="color:#666">4.9 · 128 parent reviews</span></div>
+        <div class="price" style="margin-top:8px">149 SAR <span style="font-size:12px;color:var(--muted);font-weight:600">VAT included</span></div>
+        <div class="bnpl">Split into 4 interest-free payments of <b>37.25 SAR</b> with <b>tabby</b> or <b>tamara</b></div>
+        <div style="font-size:12.5px;font-weight:800;margin:12px 0 6px">Colour: Sky Blue</div><div class="sw"><i style="background:#4FA3F7;box-shadow:0 0 0 2px var(--ink)"></i><i style="background:#FF6B6B"></i><i style="background:#2B2D42"></i></div>
+        <div style="font-size:12.5px;font-weight:800;margin:14px 0 6px;display:flex;justify-content:space-between">Size (EU) <span style="color:var(--sky)">📏 Size guide</span></div>
+        <div class="sizes" style="grid-template-columns:repeat(6,1fr)"><span>22</span><span>23</span><span class="on">24</span><span>25</span><span class="x">26</span><span>27</span></div>
+        <div style="font-size:11.5px;color:var(--coral-d);margin-top:6px;font-weight:700">Only 3 left in EU 24</div>
+        <div style="display:flex;gap:10px;margin:14px 0"><span class="qty"><span>−</span><span>1</span><span>+</span></span><button class="btn c" style="flex:1;justify-content:center">Add to bag</button><button class="btn w">♡</button></div>
+        <div class="acc">📏 Size guide (foot length) <span>−</span></div>
+        <table><tr><th>EU size</th><th>Foot length (cm)</th><th>Approx. age</th></tr><tr><td>22</td><td>13.5</td><td>2 years</td></tr><tr><td>24</td><td>14.8</td><td>3 years</td></tr><tr><td>26</td><td>16.1</td><td>4 years</td></tr></table>
+        <div class="acc">🚚 Delivery &amp; returns <span>+</span></div><div class="acc">🧼 Materials &amp; care <span>+</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="note">Size chart values are placeholders and will be replaced with each brand's official chart.</div>
+</section>
+
+<!-- 05 -->
+<section class="scr" id="s-checkout">
+  <div class="hdr"><div><h1>05 · Checkout: Cards, Wallets, BNPL &amp; Cash on Delivery</h1><p>Shopify Checkout with a local payment gateway app, BNPL apps, a manual COD method, and live courier rates.</p></div><span class="pill">Payments &amp; Shipping</span></div>
+  <div class="browser"><div class="bbar"><i></i><i></i><i></i><span class="url">🔒 pommykids.com/checkouts/…</span></div>
+    <div class="co">
+      <div class="l">
+        <div class="logo" style="font-size:22px">pommy<span>kids</span></div>
+        <h4>Contact</h4><div class="fld">Mobile number  +966 5• ••• ••••</div>
+        <h4>Delivery</h4><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="fld">City: Riyadh</div><div class="fld">District: Al Olaya</div></div><div class="fld">Short national address (e.g., RRRD2929)</div>
+        <h4>Shipping method</h4>
+        <div class="opt on"><span>● SMSA Express · 1–3 business days</span><b>Free</b></div>
+        <div class="opt"><span>○ Aramex · 1–2 business days</span><b>25 SAR</b></div>
+        <div class="opt"><span>○ Same-day delivery (Riyadh)</span><b>35 SAR</b></div>
+        <h4>Payment</h4>
+        <div class="opt on"><span>● Credit / debit card</span><span class="ic"><span>mada</span><span>VISA</span><span>MC</span></span></div>
+        <div class="opt"><span>○ Apple Pay</span><span class="ic"><span> Pay</span></span></div>
+        <div class="opt"><span>○ Pay in 4 – tabby</span><span class="ic"><span>tabby</span></span></div>
+        <div class="opt"><span>○ Pay in 4 – tamara</span><span class="ic"><span>tamara</span></span></div>
+        <div class="opt"><span>○ Cash on Delivery (+10 SAR COD fee)</span><span class="ic"><span>COD</span></span></div>
+        <button class="btn c" style="width:100%;justify-content:center;margin-top:16px;border-radius:10px">Pay now · 238 SAR</button>
+        <div class="note">🔒 Card data is processed by the PCI-DSS certified gateway; Pommy Kids never stores card numbers. COD orders are confirmed by SMS/WhatsApp OTP.</div>
+      </div>
+      <div class="r">
+        <div class="li"><div class="im">👟<b>1</b></div><div style="flex:1"><b style="font-size:13px">Light-Up Runner</b><div style="font-size:11.5px;color:var(--muted)">Sky Blue / EU 24</div></div><b>149 SAR</b></div>
+        <div class="li"><div class="im">👗<b>1</b></div><div style="flex:1"><b style="font-size:13px">Daisy Cotton Dress</b><div style="font-size:11.5px;color:var(--muted)">Yellow / 4–5 y</div></div><b>89 SAR</b></div>
+        <div style="display:flex;gap:8px;margin:12px 0"><div class="fld" style="flex:1;margin:0">Discount code</div><button class="btn w sm" style="border-radius:9px">Apply</button></div>
+        <div class="line"><span>Subtotal</span><span>238 SAR</span></div>
+        <div class="line"><span>Shipping</span><span>Free</span></div>
+        <div class="line"><span>COD fee</span><span>—</span></div>
+        <div class="line t"><span>Total</span><span>SAR 238</span></div>
+        <div style="font-size:11.5px;color:var(--muted)">Including 31.04 SAR VAT (15%)</div>
+      </div>
+    </div></div>
+</section>
+
+<!-- 06 -->
+<section class="scr" id="s-tracking">
+  <div class="hdr"><div><h1>06 · Order Tracking &amp; Notifications</h1><p>Courier app syncs tracking numbers to Shopify; customers get SMS/WhatsApp and email updates.</p></div><span class="pill s">Shipping</span></div>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:18px">
+  <div class="browser"><div class="bbar"><i></i><i></i><i></i><span class="url">🔒 pommykids.com/apps/track</span></div>
+    <div style="padding:22px 26px"><h2 style="margin:0 0 4px;font-weight:900">Order #PK1042</h2><div class="muted" style="font-size:12.5px">SMSA Express · Tracking 2900 •••• 118 · Estimated delivery: Thursday</div>
+      <div class="track"><div><i class="d">✓</i>Order placed</div><div><i class="d">✓</i>Packed</div><div><i class="d">✓</i>Picked up by courier</div><div><i>🚚</i>Out for delivery</div><div><i>🏠</i>Delivered</div></div>
+      <div class="card" style="margin-top:18px"><h4>Need to change something?</h4><div style="display:flex;gap:8px"><button class="btn w sm">Request exchange</button><button class="btn w sm">Start a return</button><button class="btn c sm">💬 WhatsApp us</button></div></div></div></div>
+  <div class="phone" style="width:290px"><div style="background:#ECE5DD;padding:14px;min-height:340px;font-size:12.5px" dir="rtl">
+    <div style="background:#fff;border-radius:10px;padding:10px;margin-bottom:10px">مرحباً 👋 تم شحن طلبك <b>#PK1042</b> مع سمسا. رقم التتبع: 2900••••118<br><span style="color:var(--sky)">تتبّع الشحنة ←</span></div>
+    <div style="background:#fff;border-radius:10px;padding:10px">طلبك في الطريق إليك اليوم 🚚 يرجى تجهيز مبلغ الدفع عند الاستلام: <b>٢٤٨ ر.س</b></div></div></div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="scr" id="s-inventory">
+  <div class="hdr"><div><h1>07 · Inventory Management in Shopify</h1><p>Shopify native inventory: one stock record per size/colour variant across warehouse and store locations.</p></div><span class="pill y">Shopify Admin</span></div>
+  <div class="adm"><div class="sb"><div>🏠 Home</div><div>📦 Orders</div><div class="on">🏷️ Products</div><div style="padding-left:24px" class="on">Inventory</div><div style="padding-left:24px">Transfers</div><div style="padding-left:24px">Purchase orders</div><div>👥 Customers</div><div>📣 Marketing</div><div>📊 Analytics</div><div>⚙️ Settings</div></div>
+    <div class="mn">
+      <div class="kp"><div class="card"><small>Active SKUs (variants)</small><b>1,284</b></div><div class="card"><small>Units on hand</small><b>9,730</b></div><div class="card"><small>Low-stock variants</small><b class="low">23</b></div><div class="card"><small>Locations</small><b>2</b><small>Riyadh warehouse · Showroom</small></div></div>
+      <div class="card"><h4>Inventory <span style="display:flex;gap:6px"><span class="pill g">Location: Riyadh warehouse ▾</span><button class="btn w sm" style="border-radius:8px">Import CSV</button><button class="btn c sm" style="border-radius:8px;box-shadow:none">Create transfer</button></span></h4>
+        <table><tr><th>Product</th><th>Variant</th><th>SKU / Barcode</th><th>Unavailable</th><th>Committed</th><th>Available</th><th>On hand</th></tr>
+        <tr><td>👟 Light-Up Runner</td><td>Sky Blue / EU 24</td><td>PK-LUR-SB-24</td><td>0</td><td>2</td><td class="low">3</td><td>5</td></tr>
+        <tr><td>👟 Light-Up Runner</td><td>Sky Blue / EU 25</td><td>PK-LUR-SB-25</td><td>0</td><td>1</td><td>14</td><td>15</td></tr>
+        <tr><td>👗 Daisy Cotton Dress</td><td>Yellow / 4–5 y</td><td>PK-DCD-YE-45</td><td>1 (damaged)</td><td>0</td><td>22</td><td>23</td></tr>
+        <tr><td>🥿 Soft-Sole First Steps</td><td>Beige / 0–6 m</td><td>PK-SSF-BE-06</td><td>0</td><td>4</td><td class="low">2</td><td>6</td></tr>
+        <tr><td>👕 Dino Play T-shirt</td><td>Mint / 2–3 y</td><td>PK-DPT-MI-23</td><td>0</td><td>0</td><td>41</td><td>41</td></tr></table></div>
+      <div class="card"><h4>Automation (Shopify Flow)</h4><div class="flow"><span class="k">Trigger: Inventory quantity changed</span>→<span>Condition: Available ≤ 3</span>→<span>Action: Email &amp; Slack/WhatsApp alert to purchasing</span>→<span>Action: Tag product “Low stock” (shows badge on store)</span></div></div>
+    </div></div>
+</section>
+
+<!-- 08 -->
+<section class="scr" id="s-marketing">
+  <div class="hdr"><div><h1>08 · Social Media Ads &amp; Pixels</h1><p>Official Shopify sales-channel apps install pixels, server-side events and catalog sync without custom code.</p></div><span class="pill">Marketing</span></div>
+  <div class="adm"><div class="sb"><div>🏠 Home</div><div>📦 Orders</div><div>🏷️ Products</div><div>👥 Customers</div><div class="on">📣 Marketing</div><div>📊 Analytics</div><div style="margin-top:10px;font-weight:800;opacity:.6">Sales channels</div><div>Online Store</div><div class="on">Facebook &amp; Instagram</div><div>TikTok</div><div>Snapchat Ads</div><div>Google &amp; YouTube</div></div>
+    <div class="mn">
+      <div class="kp"><div class="card"><small>Pixel events (7 d)</small><b>48,210</b></div><div class="card"><small>Catalog items synced</small><b>1,284</b></div><div class="card"><small>Event match quality (Meta)</small><b>8.4/10</b></div><div class="card"><small>Customer privacy</small><b style="font-size:15px">Consent banner on</b></div></div>
+      <div class="card"><h4>Connected channels</h4><table><tr><th>Channel</th><th>Pixel / Tag</th><th>Server-side events</th><th>Catalog / Shop</th><th>Status</th></tr>
+        <tr><td><b>Meta</b> (Facebook &amp; Instagram)</td><td>Meta Pixel</td><td>Conversions API ✓</td><td>Instagram &amp; Facebook Shops ✓</td><td><span class="pill m">Connected</span></td></tr>
+        <tr><td><b>TikTok</b></td><td>TikTok Pixel</td><td>Events API ✓</td><td>TikTok catalog ✓</td><td><span class="pill m">Connected</span></td></tr>
+        <tr><td><b>Snapchat</b></td><td>Snap Pixel</td><td>Conversions API ✓</td><td>Snap catalog ✓</td><td><span class="pill m">Connected</span></td></tr>
+        <tr><td><b>Google</b> (Ads, YouTube, Merchant Center)</td><td>Google tag / GA4</td><td>Enhanced conversions ✓</td><td>Merchant Center feed ✓</td><td><span class="pill m">Connected</span></td></tr>
+        <tr><td><b>X / Pinterest</b> (optional)</td><td>Tag</td><td>—</td><td>—</td><td><span class="pill g">Optional</span></td></tr></table></div>
+      <div class="card"><h4>Standard events tracked</h4><div class="flow"><span>PageView</span><span>ViewContent</span><span>Search</span><span>AddToCart</span><span>InitiateCheckout</span><span>AddPaymentInfo</span><span class="k">Purchase (incl. COD)</span></div></div>
+    </div></div>
+</section>
+
+<!-- 09 -->
+<section class="scr" id="s-legal">
+  <div class="hdr"><div><h1>09 · Policies &amp; Legal Pages</h1><p>Shopify policy pages, completed in Arabic and English and reviewed against KSA e-commerce requirements.</p></div><span class="pill s">Legal</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:18px">
+    <div class="card"><h4>Policy pages (linked in footer &amp; checkout)</h4><table>
+      <tr><td>📄 Refund, Return &amp; Exchange Policy</td><td><span class="pill m">AR · EN</span></td></tr>
+      <tr><td>🚚 Shipping &amp; Delivery Policy</td><td><span class="pill m">AR · EN</span></td></tr>
+      <tr><td>🔐 Privacy Policy (PDPL)</td><td><span class="pill m">AR · EN</span></td></tr>
+      <tr><td>📜 Terms of Service</td><td><span class="pill m">AR · EN</span></td></tr>
+      <tr><td>🍪 Cookie &amp; Tracking Consent</td><td><span class="pill m">Banner</span></td></tr>
+      <tr><td>🏢 Contact &amp; Business Information</td><td><span class="pill m">AR · EN</span></td></tr>
+      <tr><td>❓ FAQ &amp; Size Guide</td><td><span class="pill m">AR · EN</span></td></tr></table></div>
+    <div class="browser"><div class="bbar"><i></i><i></i><i></i><span class="url">🔒 pommykids.com/policies/refund-policy</span></div>
+      <div style="padding:20px 26px;line-height:1.65;font-size:13px"><h2 style="margin:0 0 8px;font-weight:900">Returns &amp; Exchanges</h2>
+        <p><b>Return window:</b> You can return unused items in their original packaging within the period required by Saudi e-commerce regulations, counted from the date of delivery.</p>
+        <p><b>Exceptions:</b> For hygiene reasons, underwear and socks cannot be returned once opened, unless faulty.</p>
+        <p><b>Refunds:</b> Card, Apple Pay and BNPL orders are refunded to the original payment method; COD orders are refunded by bank transfer.</p>
+        <div style="background:var(--cream);border-radius:12px;padding:10px 12px;font-size:12px">Business details shown on every page footer: legal name, Commercial Registration (CR) number, VAT number, address, phone and email, plus the Saudi Business Center e-commerce certificate.</div>
+        <div class="note">Policy wording is a sample. Final texts must be approved by Pommy Kids and its legal advisor.</div></div></div>
+  </div>
+</section>
+
+</main></div>
+<script>
+function show(){var h=(location.hash||"#home").slice(1);if(!document.getElementById("s-"+h))h="home";
+document.querySelectorAll(".scr").forEach(function(s){s.classList.toggle("on",s.id==="s-"+h)});
+document.querySelectorAll(".idx a").forEach(function(a){a.classList.toggle("on",a.dataset.s===h)});window.scrollTo(0,0)}
+addEventListener("hashchange",show);show();
+</script>
+</body>
+</html>
